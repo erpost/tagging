@@ -1,13 +1,13 @@
 {
     "tags": {
-        "fisma_key_value": {
+        "fisma_system": {
             "tag_key": {
-                "@@assign": "fisma_key_value"
+                "@@assign": "fisma_system"
             },
             "tag_value": {
                 "@@assign": [
-                    "dhs",
-                    "hud"
+                    "system1",
+                    "system2"
                 ]
             },
             "enforced_for": {

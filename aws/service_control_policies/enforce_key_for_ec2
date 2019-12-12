@@ -1,0 +1,27 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "DenyRunInstanceWithNoFISMATag",
+            "Effect": "Deny",
+            "Action": "ec2:RunInstances",
+            "Resource": [
+                "arn:aws:ec2:*:*:instance/*"
+            ],
+            "Condition": {
+              "Null": {
+                "aws:RequestTag/fisma_system": "true"
+              }
+            }
+        },
+        {
+            "Sid": "DenyRemoveFISMATag",
+            "Effect": "Deny",
+            "Action": [
+                "ec2:DeleteTags"
+            ],
+            "Resource": "*",
+            "Condition": {"ForAllValues:StringEquals": {"aws:TagKeys": ["fisma_system"]}}
+        }
+    ]
+}
